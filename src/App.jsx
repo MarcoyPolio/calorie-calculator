@@ -443,6 +443,28 @@ const css = `
   .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,168,76,0.35); }
   .cta-price { text-align: center; margin-top: 10px; font-size: 12px; color: var(--text-mid); }
 
+  /* ── CROSS-LINKS ── */
+  .crosslinks {
+    margin-top: 36px; padding: 28px; border-radius: 20px;
+    background: rgba(255,255,255,0.02); border: 1px solid var(--border);
+  }
+  .crosslinks-label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--text-mid);
+    margin-bottom: 16px; text-align: center;
+  }
+  .crosslinks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .crosslink-card {
+    padding: 18px; border-radius: 14px; text-decoration: none;
+    border: 1px solid var(--border); background: rgba(255,255,255,0.02);
+    transition: all 0.25s; display: block;
+  }
+  .crosslink-card:hover { transform: translateY(-2px); border-color: var(--gold-bdr); background: var(--gold-dim); }
+  .crosslink-icon { font-size: 22px; margin-bottom: 8px; display: block; }
+  .crosslink-title { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 400; color: var(--text); margin-bottom: 4px; }
+  .crosslink-desc { font-size: 12px; color: var(--text-mid); line-height: 1.5; font-weight: 300; }
+  @media (max-width: 480px) { .crosslinks-grid { grid-template-columns: 1fr; } }
+
   /* ── FAQ ── */
   .faq-wrap { margin-top: 44px; padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.05); }
   .faq-head { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
@@ -644,6 +666,26 @@ function CTA() {
         🌙 Get the Better Sleep Guide — $19
       </a>
       <div className="cta-price">One-time purchase · Instant download · No subscription</div>
+    </div>
+  );
+}
+
+function CrossLinks() {
+  return (
+    <div className="crosslinks">
+      <div className="crosslinks-label">More Free Health Tools</div>
+      <div className="crosslinks-grid">
+        <a className="crosslink-card" href="https://sleep-calculator-gold.vercel.app" target="_blank" rel="noopener noreferrer">
+          <span className="crosslink-icon">🌙</span>
+          <div className="crosslink-title">Sleep Hours Calculator</div>
+          <div className="crosslink-desc">Find your ideal bedtime, wake-up time, and recommended sleep hours.</div>
+        </a>
+        <a className="crosslink-card" href="https://bmi-calculator-kcfpnqy5m-marcoypolios-projects.vercel.app" target="_blank" rel="noopener noreferrer">
+          <span className="crosslink-icon">📊</span>
+          <div className="crosslink-title">BMI & Body Fat Calculator</div>
+          <div className="crosslink-desc">Calculate your BMI, body fat percentage, and ideal weight range.</div>
+        </a>
+      </div>
     </div>
   );
 }
@@ -850,8 +892,9 @@ function DeficitCalc() {
           </div>
         )}
       </div>
-      <EmailCapture />
       <CTA />
+      <EmailCapture />
+      <CrossLinks />
       <FAQ />
     </>
   );
